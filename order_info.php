@@ -45,21 +45,38 @@
 		    外送時間：
 		    <form name="外送時間" method="post">
             <select name="time">
-               <option> 11:00 </option>
-               <option> 11:30 </option>
-               <option> 12:00 </option>
-               <option> 12:30 </option>
-               <option> 13:00 </option>
-               <option> 13:30 </option>
-               <option> 14:00 </option>
-               <option> 14:30 </option>
-               <option> 15:00 </option>
-               <option> 15:30 </option>
+               <option> 11:00~11:30 </option>
+               <option> 11:30~12:00 </option>
+               <option> 12:00~12:30 </option>
+               <option> 12:30~13:00 </option>
+               <option> 13:00~13:30 </option>
+               <option> 13:30~14:00 </option>
+               <option> 14:00~14:30 </option>
+               <option> 14:30~15:00 </option>
+               <option> 15:00~15:30 </option>
+               <option> 15:30~16:00 </option>
+               <option> 16:00~16:30 </option>
+               <option> 16:30~17:00 </option>
+               <option> 17:00~17:30 </option>
+               <option> 17:30~18:00 </option>
+               <option> 18:00~18:30 </option>
+               <option> 18:30~19:00 </option>
+               <option> 19:00~19:30 </option>
+               <option> 19:30~20:00 </option>
+               <option> 20:00~20:30 </option>
+               <option> 20:30~21:00 </option>
+               <option> 21:00~21:30 </option>
+               <option> 21:30~22:00 </option>
+               <option> 22:00~22:30 </option>
+               <option> 22:30~23:00 </option>
            </select><br>
 
-		    訂購人稱謂：<input type="text" name="username"/>
+		    訂購人貴姓：<input type="text" name="username"/>
 		    <form name="稱謂" method="post">
-            (如：王先生，陳小姐)<br>
+            <select name="title">
+               <option> 先生 </option>
+               <option> 小姐 </option>
+            </select><br>
 		    聯絡電話(一)：<input type="tel" name="tel1"/><br>
 		    聯絡電話(二)：<input type="tel" name="tel2"/><br>
 		    外送地址：<input type="text" name="addr"/><br>

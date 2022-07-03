@@ -61,7 +61,16 @@ while($data=mysqli_fetch_assoc($result)){
    </select>
 </div>
 
-<br>
+<br>    
+
+<!-- <div>
+   請選擇飲品(必選)：
+   <select id='drink_item'>
+      <option>選擇飲品</option>
+   </select>
+</div>
+
+<br>  -->
 
 <div>
    請選擇甜度(必選)：
@@ -166,13 +175,27 @@ var add_select;
 var count;
 var tel; 
 
+// 選擇飲品
+/*$(document).on('click', '#drink_item', function(){
+   console.log("enter select_drink function");
+   $.ajax({
+      url:"select_drink.php",				
+      method:"POST",
+      data:{
+      },					
+      success:function(res){	
+      console.log("res(drink)= ", res);				
+         $('#drink_item').html(res);
+      }
+   })//end ajax
+});*/
 
 // 選擇甜度
 $(document).on('change', '#drink_item', function(){
    console.log("enter select_sugar function");
    var drink_item = $('#drink_item :selected').val();
    $.ajax({
-      url:"select_drink.php",				
+      url:"select_sugar.php",				
       method:"POST",
       data:{
          drink_item:drink_item

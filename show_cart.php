@@ -41,7 +41,7 @@
 	require("db_config.php");
     $tel=$_GET['tel'];
 	//echo"tel=$tel";
-	$sql_query="SELECT `訂購人`, `外送時間`, `電話1`, `電話2`, `地址`, `公司名稱` FROM `顧客資料` where 電話1 = $tel or 電話2 = $tel" ;
+	$sql_query="SELECT `訂購人`, `稱謂`, `外送時間`, `電話1`, `電話2`, `地址`, `公司名稱` FROM `顧客資料` where 電話1 = $tel or 電話2 = $tel" ;
     $result=mysqli_query($db_link, $sql_query);
     
 	if(mysqli_num_rows($result)){
@@ -53,12 +53,12 @@
      echo "<font size=\"5\" color=\"xxxx\"> 外送資料 </font>"; 
      echo"<br>";
      $row = mysqli_fetch_array($result);
-     echo "訂購人：$row[0]</br>";
-     echo "外送時間：$row[1]</br>";
-     echo "電話1：$row[2]</br>";
-     echo "電話2：$row[3]</br>";
-     echo "地址：$row[4]</br>";
-     echo "公司名稱：$row[5]</br>";
+     echo "訂購人：$row[0]";echo "$row[1]</br>";
+     echo "外送時間：$row[2]</br>";
+     echo "電話1：$row[3]</br>";
+     echo "電話2：$row[4]</br>";
+     echo "地址：$row[5]</br>";
+     echo "公司名稱：$row[6]</br>";
 	}else{
 		echo"連線出現問題·請再試一次。";
 	}

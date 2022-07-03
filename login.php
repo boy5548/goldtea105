@@ -42,6 +42,7 @@
 
 	$time=$_POST['time'];
 	$username=$_POST['username'];
+	$mrms=$_POST['title'];
 	$tel1=$_POST['tel1'];
 	$tel2=$_POST['tel2'];
 	$addr=$_POST['addr'];
@@ -50,7 +51,7 @@
 //	echo "time=$time</br>";
 	
 	require("db_config.php");
-	$sql_query="INSERT INTO `顧客資料`(`訂購人`, `外送時間`, `電話1`, `電話2`, `地址`, `公司名稱`) VALUES ('$username','$time','$tel1','$tel2','$addr','$company')";
+	$sql_query="INSERT INTO `顧客資料`(`訂購人`, `稱謂`, `外送時間`, `電話1`, `電話2`, `地址`, `公司名稱`) VALUES ('$username', '$title', '$time','$tel1','$tel2','$addr','$company')";
 
 	if(mysqli_query($db_link, $sql_query))
 	   echo "";
@@ -58,23 +59,23 @@
 	   echo "";
 
 
-    $result=mysqli_query($db_link,"SELECT `訂購人`, `外送時間`, `電話1`, `電話2`, `地址`, `公司名稱` FROM 顧客資料 where 電話1 = $tel1");
+    $result=mysqli_query($db_link,"SELECT `訂購人`, `稱謂`, `外送時間`, `電話1`, `電話2`, `地址`, `公司名稱` FROM 顧客資料 WHERE 電話1 = $tel1 AND ID = (SELECT MAX(ID) FROM 顧客資料 WHERE 電話1 = $tel1)");
     
 	if(mysqli_num_rows($result)){
     
-		 if(!result1){
+/*		 if(!result1){
              echo(“Error“.mysqli_error($db_link));
              exit();
-         }
+         }*/
          
 
      $row = mysqli_fetch_array($result);
-     echo "訂購人：$row[0]</br>";
-     echo "外送時間：$row[1]</br>";
-     echo "電話1：$row[2]</br>";
-     echo "電話2：$row[3]</br>";
-     echo "地址：$row[4]</br>";
-     echo "公司名稱：$row[5]</br>";
+     echo "訂購人：$row[0]";echo "$row[1]</br>";
+     echo "外送時間：$row[2]</br>";
+     echo "電話1：$row[3]</br>";
+     echo "電話2：$row[4]</br>";
+     echo "地址：$row[5]</br>";
+     echo "公司名稱：$row[6]</br>";
 
 	}else{
 		echo"連線出現問題·請再試一次。";
@@ -98,7 +99,7 @@
     </body>
     <center><font size="5">以上資訊是否正確？</front>
                        <div class="subheading mb-5">
-                    <a class="btn btn-outline-primary btn-lg" href="order_drink.php?company=<?php echo $_GET["company"];?> && tel=<?php echo $tel1; ?>" role="button">正確無誤，前往點餐</a>
+                    <a class="btn btn-outline-primary btn-lg" href="order_drink.php?company=<?php echo $_GET["company"];?>&tel=<?php echo $tel1; ?>" role="button">正確無誤，前往點餐</a>
                     <a class="btn btn-outline-primary btn-lg" href="order_info.php?company=<?php echo $_GET["company"]?>" role="button">資料有誤，返回重填</a></center>
                   
                     </div>
